@@ -1,0 +1,33 @@
+!!!
+html
+  head
+    title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    - if (typeof(javascripts) != "undefined")
+      - each javascript in javascripts
+        script(src='/javascripts/' +javascript+ '.js' , type='text/javascript', charset='utf-8')
+  body
+    #wrapper
+      #header
+        a(href="/games")
+          h1 Kitchen Table Games
+        - if (typeof(user) != "undefined")
+          ul
+            li= 'Welcome ' + user.name
+            li
+              a(href="/") Logout
+        p Casual Board Gaming
+
+      #nav
+        ul
+          li
+            - if (route == '/games')
+              a.leave.current(href='/games') Lobby
+            - else
+              a.leave(href='/games') Lobby
+      #content
+        != body
+      #footer
+        p 
+          = "This site is still in testing. "
+          a(href="") Please e-mail me if you find any problems.

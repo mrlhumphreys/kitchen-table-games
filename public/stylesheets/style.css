@@ -1,0 +1,196 @@
+* { padding:0; margin: 0;}
+
+body {
+  font-family: Trebuchet MS1, Trebuchet MS, 'sans-serif';
+  font-size: 12px;
+  line-height: 18px;
+  background-color: #00418B;
+}
+
+a {
+  color: #E67700;
+}
+
+h2 { 
+  font-size: 24px; 
+  line-height: 36px;
+}
+
+dl {
+  overflow: hidden;
+}
+
+dt {
+  clear: both;
+  font-weight: bold;
+  float: left;
+  margin-right: 10px;
+}
+
+dd {
+  
+}
+
+#wrapper {
+  width: 960px;
+  margin: 1em auto;
+  background-color: #000;
+  border-radius: 10px;
+}
+
+#header {
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#header > a {
+  text-decoration: none;
+}
+
+#header h1 { 
+  color: #E67700;
+  font-size: 48px; 
+  line-height: 72px;
+  margin-left: 10px;
+  float: left;
+}
+
+#header p {
+  clear: both;
+  font-size: 18px; 
+  line-height: 18px;
+  padding: 0 10px 1em 10px;
+}
+
+#header ul {
+  font-weight: bold;
+  float: right;
+  list-style: none;
+  overflow: hidden;
+}
+
+#header ul li {
+  float: left;
+  margin: 1em 10px;
+}
+
+#nav {
+  background-color: #000;
+  color: #fff;
+}
+
+#nav ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+#nav ul li {
+  float: left;
+}
+
+#nav ul li a {
+  font-weight: bold;
+  display: block;
+  padding: 1em 10px;
+  font-size: 18px; 
+  line-height: 18px;
+  text-decoration: none;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#nav ul li a:hover {
+  color: #fff;
+}
+
+#nav ul li a.current {
+  background-color: #E67700;
+  border-top: solid 3px #E67700;
+  border-left: solid 3px #E67700;
+  border-right: solid 3px #E67700;
+  color: #fff;
+  border-bottom: none;
+}
+
+#content {
+  background-color: #fff;
+  border-top: solid 3px #E67700;
+  border-left: solid 3px #E67700;
+  border-right: solid 3px #E67700;
+  border-bottom: none;
+  overflow: hidden;
+
+}
+
+#content > h2 {
+  margin: 0em 10px;
+}
+
+#login {
+  width: 300px;
+  margin: 1em auto;
+}
+
+#login h2 { 
+  text-align: center;
+}
+
+#login form {
+  padding: 1em 0;
+}
+
+#login input {
+  margin: 0 10px;
+}
+
+#content .main {
+  width: 620px;
+  margin: 1em 10px 0 6px;
+  float: left;
+}
+
+#content .aside {
+  width: 300px;
+  margin: 1em 7px 0 10px;
+  float: left;
+}
+
+#game #board {
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+#aside input.message {
+  width: 100%;
+}
+
+#aside ul {
+  list-style: none;
+}
+
+#aside ul {
+  margin-bottom: 1em;
+}
+
+#games ul {
+  list-style: none;
+}
+
+#games_new label, #games_new input, #games_new select {
+  margin-right: 10px;
+}
+
+#footer {
+  background-color: #fff;
+  clear: both;
+  border-radius: 0px 0px 10px 10px;
+  border-left: solid 3px #E67700;
+  border-right: solid 3px #E67700;
+  border-bottom: solid 3px #E67700;
+}
+
+#footer p {
+  text-align: center;
+  padding: 1em 10px;
+}

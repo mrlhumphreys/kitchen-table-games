@@ -1,0 +1,20 @@
+#games.main
+  h2 Join a Game:
+  
+  - if (typeof(error) != 'undefined')
+    p= error
+  
+  ul.games
+    - for(var index in games)
+      li(class=index)
+        a(href='/games/' + index)= games[index].gameType + ' ' + index
+        
+#games_new.aside
+  h2 Start a new Game
+  form(action='/games', method='post')
+    label(for='gameType') Game Type:
+    select#gameType(name='game[gameType]')
+      option(value='draughts') Draughts
+      option(value='backgammon') Backgammon
+      option(value='chess') Chess
+    input(name='commit', type='submit', value='Start')

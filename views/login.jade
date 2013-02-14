@@ -1,0 +1,8 @@
+#login
+  h2 Login
+  - if (typeof(error) != 'undefined')
+    p= error
+  form(action='sessions', method='post')
+    label(for='name')
+    input#name(type='text',name='name')
+    input#session_submit(name='commit', type='submit', value='Login')

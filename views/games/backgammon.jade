@@ -1,0 +1,27 @@
+#game.main
+  h2= 'Game: Backgammon ' + game.id
+  canvas#board(width='510',height='420')
+
+#aside.aside
+  h2 Game State
+  dl.players
+    dt Red:
+    dd.red
+      - if (game.redPlayer != null)
+        = game.redPlayer.name
+    dt Black:
+    dd.black
+      - if (game.blackPlayer != null)
+        = game.blackPlayer.name
+    dt Current:
+    dd.current
+      - if (game.currentPlayer != null)
+        = game.currentPlayer.name
+  p.game_message Start
+
+  h2 Chat
+  ul.messages
+    - for (var i=0;i<10;i++)
+      li &nbsp;
+  input.message(type='text', name='mesage[text]', placeholder='Type here to chat.')
+
