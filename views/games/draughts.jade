@@ -1,27 +1,30 @@
-#game.main
-  h2= 'Game: Draughts ' + game.id
-  canvas#board(width='420',height='420')
+extends ../layout
 
-#aside.aside
-  h2 Game State
-  dl.players
-    dt White:
-    dd.white
-      - if (game.whitePlayer != null)
-        = game.whitePlayer.name
-    dt Black:
-    dd.black
-      - if (game.blackPlayer != null)
-        = game.blackPlayer.name
-    dt Current:
-    dd.current
-      - if (game.currentPlayer != null)
-        = game.currentPlayer.name
-  p.game_message Start
+block content
+  #game.main
+    h2= 'Game: Draughts ' + game.id
+    canvas#board(width='420',height='420')
 
-  h2 Chat
-  ul.messages
-    - for (var i=0;i<10;i++)
-      li &nbsp;
-  input.message(type='text', name='mesage[text]', placeholder='Type here to chat.')
+  #aside.aside
+    h2 Game State
+    dl.players
+      dt White:
+      dd.white
+        - if (game.whitePlayer != null)
+          = game.whitePlayer.name
+      dt Black:
+      dd.black
+        - if (game.blackPlayer != null)
+          = game.blackPlayer.name
+      dt Current:
+      dd.current
+        - if (game.currentPlayer != null)
+          = game.currentPlayer.name
+    p.game_message Start
+
+    h2 Chat
+    ul.messages
+      - for (var i=0;i<10;i++)
+        li &nbsp;
+    input.message(type='text', name='mesage[text]', placeholder='Type here to chat.')
 

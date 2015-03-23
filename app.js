@@ -3,32 +3,41 @@
  * Module dependencies.
  */
 
-require.paths.unshift(__dirname + '/lib');
+// require.paths.unshift(__dirname + '/lib');
 
-var express = require('express'), faye = require('faye');
+var express = require('express');
+var faye = require('faye');
+var session = require('express-session');
+var flash = require('flash');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var cookieParser = require('cookie-parser');
+var errorhandler = require('errorhandler');
+var http = require('http');
 
-var app = module.exports = express.createServer();
+// var app = module.exports = express.createServer();
+var app = express();
 
 // Configuration
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.cookieParser());
-  app.use(express.session({ secret: "game over man" }));
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(bodyParser());
+app.use(methodOverride());
+app.use(cookieParser());
+app.use(session({ secret: "game over man" }));
+app.use(require('flash')());
+app.use(express.static(__dirname + '/public'));
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
+if ('development' == app.get('env')) {
+  app.use(errorhandler({ dumpExceptions: true, showStack: true }));
+}
 
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});
+if ('production' == app.get('env')) {
+   app.use(errorhandler());
+}
+
+var server = http.createServer(app);
 
 // PubSub
 
@@ -103,10 +112,15 @@ app.post('/games', checkLogin, function(req, res) {
 });
 
 // Only listen on $ node app.js
+bayeux.attach(server);
 
-bayeux.attach(app);
+server.listen(4567, function() {
+  console.log('Listening');
+})
 
-if (!module.parent) {
-  app.listen(4567);
-  console.log("Express server listening on port %d", app.address().port);
-}
+// if (!module.parent) {
+//   app.listen(4567);
+//   // console.log("Express server listening on port %d", app.address().port);
+// }
+
+
