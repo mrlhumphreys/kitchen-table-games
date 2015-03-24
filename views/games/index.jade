@@ -4,9 +4,6 @@ block content
   #games.main
     h2 Join a Game:
   
-    - if (typeof(error) != 'undefined')
-      p= error
-  
     ul.games
       - for(var index in games)
         li(class=index)
